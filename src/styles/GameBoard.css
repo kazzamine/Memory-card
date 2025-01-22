@@ -1,6 +1,11 @@
 .game-board {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 1rem;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px; /* Constrain the max width */
+    margin: 0 auto;
     padding: 1rem;
 }

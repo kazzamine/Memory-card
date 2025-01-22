@@ -1,21 +1,25 @@
 .card {
     width: 100px;
-    height: 100px;
-    background-color: #4caf50;
+    height: 120px;
+    background-color: #34a853; 
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
     color: white;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .card:hover {
-    background-color: #45a049;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
+
 .card.matched {
-    background-color: #d3d3d3;
-    color: #000;
+    background-color: #ccc; 
+    color: #333;
     pointer-events: none;
 }
