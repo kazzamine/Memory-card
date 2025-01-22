@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../styles/History.css';
 
 const History = () => {
     const [history, setHistory] = useState([]);
@@ -8,16 +9,26 @@ const History = () => {
         setHistory(savedHistory);
     }, []);
 
+    const clearHistory = () => {
+        localStorage.removeItem('gameHistory');
+        setHistory([]);
+    };
+
     return (
         <div>
             <h2>Game History</h2>
-            <ul>
-                {history.map((game, index) => (
-                    <li key={index}>
-                        Score: {game.score}, Time: {game.time}
-                    </li>
-                ))}
-            </ul>
+            {history.length > 0 ? (
+                <ul>
+                    {history.map((game, index) => (
+                        <li key={index}>
+                            Score: {game.score}, Time: {game.time}
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p>No games played yet!</p>
+            )}
+            <button onClick={clearHistory}>Clear History</button>
         </div>
     );
 };
