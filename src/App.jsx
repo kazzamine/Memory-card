@@ -8,6 +8,7 @@ import Game from './pages/Game';
 import Settings from './pages/Settings';
 import History from './pages/History';
 import Navbar from './layout/Navbar';
+import SettingsModal from './components/SettingsModal';
 const App = () => {
 
 
@@ -27,6 +28,11 @@ const App = () => {
       }
 
 
+      const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+
+      const handleSettingsOpen = () => setIsSettingsOpen(true);
+      const handleSettingsClose = () => setIsSettingsOpen(false);
+
 
   // return (
   //   <>
@@ -41,15 +47,17 @@ const App = () => {
     return (
       <Router>
       <Header />
-      <Navbar />
-
+      <Navbar onSettingsOpen={handleSettingsOpen} />
+      <SettingsModal
+                isOpen={isSettingsOpen}
+                onClose={handleSettingsClose}
+                onSave={setSettings}
+                currentSettings={settings}
+            />
       <main style={{ paddingBottom: '4rem' }}>
           <Routes>
               <Route path="/" element={<Game settings={settings} />} />
-              <Route
-                  path="/settings"
-                  element={<Settings onSettingsChange={handleSettings} currBackground={settings.background} />}
-              />
+              
               <Route path="/history" element={<History />} />
           </Routes>
       </main>

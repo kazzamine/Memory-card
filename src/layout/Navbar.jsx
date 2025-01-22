@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ onSettingsOpen }) => {
     return (
         <nav className="navbar">
             <div className="navbar-container">
@@ -21,9 +21,9 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li className="navbar-item">
-                        <Link to="/settings" className="navbar-link">
+                        <button className="navbar-button" onClick={onSettingsOpen}>
                             Settings
-                        </Link>
+                        </button>
                     </li>
                 </ul>
             </div>

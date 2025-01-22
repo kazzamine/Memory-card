@@ -50,3 +50,15 @@
 .navbar-link:hover {
     background-color: #0c58d8;
 }
+.navbar-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.navbar-button:hover {
+    background-color: #45a049;
+}
