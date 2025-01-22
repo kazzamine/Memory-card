@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Card from './Card';
 import '../styles/GameBoard.css';
-
+    
 const GameBoard = ({ cards, onCardFlip }) => {
     return (
         <div className="game-board">

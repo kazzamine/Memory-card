@@ -4,7 +4,7 @@ import '../styles/Footer.css';
 const Footer = () => {
     return (
         <footer className="footer">
-            <p>&copy; 2025 Memory Card Game. All rights reserved.</p>
+            <p>&copy; 2025 Memory Card Game. Amine kazzout.</p>
         </footer>
     );
 };

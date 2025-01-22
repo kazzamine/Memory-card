@@ -1,13 +1,15 @@
 .game {
-    background-color: #f7f8fa;
-    color: #333;
-    min-height: calc(100vh - 100px); 
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
+    height: calc(100vh - 100px); /* Full height minus header and footer */
+    overflow: hidden;
+    padding: 1rem;
+    box-sizing: border-box;
 }
+
+
 
 .game-info {
     display: flex;

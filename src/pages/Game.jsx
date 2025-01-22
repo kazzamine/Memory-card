@@ -15,6 +15,8 @@ const generateCards = (numCards) => {
     return cards.sort(() => Math.random() - 0.5);
 };
 
+
+
 const Game = ({ settings }) => {
     const [cards, setCards] = useState(generateCards(settings.numCards));
     const [selectedCards, setSelectedCards] = useState([]);

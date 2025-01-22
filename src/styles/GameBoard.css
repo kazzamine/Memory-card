@@ -1,11 +1,12 @@
 .game-board {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 1rem;
     justify-content: center;
-    align-items: center;
     width: 100%;
-    max-width: 800px; /* Constrain the max width */
-    margin: 0 auto;
+    max-width: 800px; /* Maximum width for the game board */
+    height: calc(100vh - 150px); /* Full height minus header, footer, and padding */
+    overflow: hidden;
+    grid-auto-rows: 1fr; /* Ensure rows are evenly spaced */
     padding: 1rem;
 }

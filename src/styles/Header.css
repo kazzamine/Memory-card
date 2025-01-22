@@ -1,9 +1,9 @@
 .header {
-    background-color: #1a73e8; /* A vibrant blue */
+    background-color: #1a73e8;
     color: white;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
