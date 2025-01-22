@@ -18,7 +18,7 @@ const Game = ({ settings }) => {
     const [cards, setCards] = useState(generateCards(settings.numCards));
     const [selectedCards, setSelectedCards] = useState([]);
     const [score, setScore] = useState(0);
-    const [elapsedTime, setElapsedTime] = useState(0); // Track elapsed time
+    const [elapsedTime, setElapsedTime] = useState(0);
     const [isGameActive, setIsGameActive] = useState(false);
     const [hasStarted, setHasStarted] = useState(false);
     const [showFinishMessage, setShowFinishMessage] = useState(false);
@@ -67,10 +67,9 @@ const Game = ({ settings }) => {
             setIsGameActive(false);
             setShowFinishMessage(true);
 
-            // Save game result with elapsed time
             const gameResult = {
                 score,
-                time: elapsedTime + ' seconds', // Store the elapsed time
+                time: elapsedTime + ' seconds',
             };
 
             const gameHistory = JSON.parse(localStorage.getItem('gameHistory')) || [];
@@ -86,8 +85,13 @@ const Game = ({ settings }) => {
         setShowFinishMessage(false);
         setCards(generateCards(settings.numCards));
         setScore(0);
-        setElapsedTime(0); // Reset elapsed time
-        setResetTimer((prev) => !prev); // Toggle reset timer to trigger reset
+        setElapsedTime(0);
+        setResetTimer((prev) => !prev);
+    };
+
+    const closePopup = () => {
+        setShowFinishMessage(false);
+        setHasStarted(false); // Return to Start Game screen
     };
 
     return (
@@ -105,7 +109,7 @@ const Game = ({ settings }) => {
                         <Timer
                             isGameActive={isGameActive}
                             reset={resetTimer}
-                            onTimeUpdate={setElapsedTime} // Update elapsed time
+                            onTimeUpdate={setElapsedTime}
                         />
                         <ScoreBoard score={score} />
                     </div>
@@ -116,6 +120,9 @@ const Game = ({ settings }) => {
             {showFinishMessage && (
                 <div className="modal-overlay">
                     <div className="modal">
+                        <button className="close-button" onClick={closePopup}>
+                            ✖
+                        </button>
                         <h3>Congratulations! 🎉 You completed the game!</h3>
                         <button className="restart-button" onClick={startGame}>
                             Play Again
