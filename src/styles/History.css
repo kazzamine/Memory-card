@@ -1,3 +1,13 @@
+.history {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: calc(100vh - 100px); /* Full height minus header and footer */
+    overflow: hidden;
+    padding: 1rem;
+    box-sizing: border-box;
+}
 button {
     padding: 0.5rem 1rem;
     background-color: #ff4d4d;

@@ -15,7 +15,7 @@ const History = () => {
     };
 
     return (
-        <div>
+        <div className='history'>
             <h2>Game History</h2>
             {history.length > 0 ? (
                 <ul>

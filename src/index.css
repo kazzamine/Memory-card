@@ -3,7 +3,10 @@ body {
     font-family: 'Roboto', sans-serif; /* Clean and modern font */
     background-color: #f4f4f4; /* Light gray background */
     color: #333;
+    transition: background-color 0.3s ease-in-out;
+
 }
+
 
 
 h2 {

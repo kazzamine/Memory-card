@@ -33,10 +33,10 @@ const Game = ({ settings }) => {
         const newCards = cards.map((card, i) =>
             i === index ? { ...card, isFlipped: true } : card
         );
-
+    
         const newSelected = [...selectedCards, index];
         setSelectedCards(newSelected);
-
+    
         if (newSelected.length === 2) {
             const [first, second] = newSelected;
             if (newCards[first].value === newCards[second].value) {
@@ -56,13 +56,23 @@ const Game = ({ settings }) => {
             }
             setSelectedCards([]);
         }
-
+    
         if (newCards.every((card) => card.isMatched)) {
             setIsGameActive(false);
+    
+            // Save game result to localStorage
+            const gameResult = {
+                score,
+                time: new Date().toLocaleTimeString(),
+            };
+    
+            const gameHistory = JSON.parse(localStorage.getItem('gameHistory')) || [];
+            localStorage.setItem('gameHistory', JSON.stringify([...gameHistory, gameResult]));
         }
-
+    
         setCards(newCards);
     };
+    
 
     return (
         <div className="game" style={{ backgroundColor: settings.background }}>

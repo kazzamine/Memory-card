@@ -1,5 +1,5 @@
 .card {
-    background-color: #34a853;
+    background-color: #173771;
     width: 100%;
     aspect-ratio: 1; /* Ensure the cards are square */
     display: flex;
@@ -19,7 +19,7 @@
 }
 
 .card.matched {
-    background-color: #ccc; 
+    background-color: #0c884c; 
     color: #333;
     pointer-events: none;
 }

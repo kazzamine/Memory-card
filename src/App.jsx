@@ -45,6 +45,7 @@ const App = () => {
   // );
 
     return (
+      <div style={{backgroundColor:settings.background}}>
       <Router>
       <Header />
       <Navbar onSettingsOpen={handleSettingsOpen} />
@@ -63,6 +64,7 @@ const App = () => {
       </main>
       <Footer />
   </Router>
+  </div>
     );
 };
 
