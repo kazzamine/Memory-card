@@ -1,0 +1,10 @@
+.game {
+    padding: 2rem;
+    text-align: center;
+}
+.game-info {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+    font-size: 18px;
+}

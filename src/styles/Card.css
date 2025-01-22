@@ -1,0 +1,21 @@
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #4caf50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.card:hover {
+    background-color: #45a049;
+}
+.card.matched {
+    background-color: #d3d3d3;
+    color: #000;
+    pointer-events: none;
+}

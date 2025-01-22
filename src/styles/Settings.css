@@ -1,0 +1,26 @@
+.settings {
+    padding: 1rem;
+    text-align: center;
+}
+
+.settings-option {
+    margin-bottom: 1rem;
+}
+
+.settings-option label {
+    margin-right: 1rem;
+    font-weight: bold;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
