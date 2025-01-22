@@ -7,7 +7,7 @@ import Game from './pages/Game';
 
 import Settings from './pages/Settings';
 import History from './pages/History';
-
+import Navbar from './layout/Navbar';
 const App = () => {
 
 
@@ -41,12 +41,14 @@ const App = () => {
     return (
       <Router>
       <Header />
+      <Navbar />
+
       <main style={{ paddingBottom: '4rem' }}>
           <Routes>
               <Route path="/" element={<Game settings={settings} />} />
               <Route
                   path="/settings"
-                  element={<Settings onSettingsChange={handleSettings} />}
+                  element={<Settings onSettingsChange={handleSettings} currBackground={settings.background} />}
               />
               <Route path="/history" element={<History />} />
           </Routes>

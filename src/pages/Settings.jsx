@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import '../styles/Settings.css';
 
-const Settings = ({ onSettingsChange }) => {
+const Settings = ({ onSettingsChange,currBackground  }) => {
     const [numCards, setNumCards] = useState(4);
-    const [background, setBackground] = useState('#ffffff');
+    const [background, setBackground] = useState(currBackground);
 
     const handleSaveSettings = () => {
         onSettingsChange({ numCards, background });
