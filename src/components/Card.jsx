@@ -9,9 +9,9 @@ const Card = ({ card, onFlip }) => {
         >
             <div className="card-content">
                 {card.isFlipped || card.isMatched ? (
-                    <span>{card.value}</span>
+                    <img src={card.image} alt="Card" className="card-image" />
                 ) : (
-                    <span>?</span>
+                    <span>?</span> // Display a placeholder when the card is not flipped
                 )}
             </div>
         </div>

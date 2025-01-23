@@ -5,15 +5,44 @@ import Timer from '../components/Timer';
 import ScoreBoard from '../components/ScoreBoard';
 import Confetti from 'react-confetti';
 
+import img1 from '../assets/animals/animal_1.png';
+import img2 from '../assets/animals/animal_2.png';
+import img3 from '../assets/animals/animal_3.png';
+import img4 from '../assets/animals/animal_4.png';
+import img5 from '../assets/animals/animal_5.png';
+import img6 from '../assets/animals/animal_6.png';
+import img7 from '../assets/animals/animal_7.png';
+import img8 from '../assets/animals/animal_8.png';
+import img9 from '../assets/animals/animal_9.png';
+import img10 from '../assets/animals/animal_10.png';
+import img11 from '../assets/animals/animal_11.png';
+import img12 from '../assets/animals/animal_12.png';
+import img13 from '../assets/animals/animal_13.png';
+import img14 from '../assets/animals/animal_14.png';
+import img15 from '../assets/animals/animal_15.png';
+import img16 from '../assets/animals/animal_16.png';
+
 const generateCards = (numCards) => {
-    const values = Array.from({ length: numCards / 2 }, (_, i) => String.fromCharCode(65 + i));
-    const cards = [...values, ...values].map((value) => ({
-        value,
+    // Array of imported images
+    const images = [
+        img1, img2, img3, img4, img5, img6, img7, img8,
+        img9, img10, img11, img12, img13, img14, img15, img16
+    ];
+
+    // Use only as many images as needed based on `numCards`
+    const selectedImages = images.slice(0, numCards / 2);
+
+    // Duplicate and shuffle images
+    const cards = [...selectedImages, ...selectedImages].map((image, index) => ({
+        id: index, // Unique identifier
+        image, // Image path
         isFlipped: false,
         isMatched: false,
     }));
+
     return cards.sort(() => Math.random() - 0.5); // Shuffle cards
 };
+
 
 const Game = ({ settings }) => {
     const [cards, setCards] = useState(generateCards(settings.numCards));
@@ -37,17 +66,18 @@ const Game = ({ settings }) => {
 
     const handleCardFlip = (index) => {
         if (!isGameActive || cards[index].isFlipped || cards[index].isMatched) return;
-
+    
         const newCards = cards.map((card, i) =>
             i === index ? { ...card, isFlipped: true } : card
         );
-
+    
         const newSelected = [...selectedCards, index];
         setSelectedCards(newSelected);
-
+    
         if (newSelected.length === 2) {
             const [first, second] = newSelected;
-            if (newCards[first].value === newCards[second].value) {
+            // Compare the image paths of the flipped cards
+            if (newCards[first].image === newCards[second].image) {
                 // Match found
                 newCards[first].isMatched = true;
                 newCards[second].isMatched = true;
@@ -64,25 +94,26 @@ const Game = ({ settings }) => {
             }
             setSelectedCards([]);
         }
-
+    
         setCards(newCards);
-
+    
         // Check if all cards are matched
         if (newCards.every((card) => card.isMatched)) {
             setIsGameActive(false);
             setShowPopup(true); // Show popup when all cards are matched
-
+    
             // Save game result to localStorage
             const gameResult = {
                 score,
                 time: `${elapsedTime} seconds`,
                 date: new Date().toLocaleString(), // Optional: Add date
             };
-
+    
             const gameHistory = JSON.parse(localStorage.getItem('gameHistory')) || [];
             localStorage.setItem('gameHistory', JSON.stringify([...gameHistory, gameResult]));
         }
     };
+    
 
     const startGame = () => {
         setHasStarted(true);
