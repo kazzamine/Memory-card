@@ -3,10 +3,16 @@ import '../styles/SettingsModal.css';
 
 const SettingsModal = ({ isOpen, onClose, onSave, currentSettings }) => {
     const [numCards, setNumCards] = useState(currentSettings.numCards);
-    const [background, setBackground] = useState(currentSettings.background);
+    const [gradientStart, setGradientStart] = useState(currentSettings.gradientStart || '#000000');
+    const [gradientEnd, setGradientEnd] = useState(currentSettings.gradientEnd || '#ffffff');
 
     const handleSave = () => {
-        onSave({ numCards, background });
+        onSave({
+            numCards,
+            background: `linear-gradient(to bottom, ${gradientStart}, ${gradientEnd})`,
+            gradientStart,
+            gradientEnd,
+        });
         onClose();
     };
 
@@ -29,12 +35,21 @@ const SettingsModal = ({ isOpen, onClose, onSave, currentSettings }) => {
                     </select>
                 </div>
                 <div className="settings-option">
-                    <label htmlFor="background">Game Background:</label>
+                    <label htmlFor="gradientStart">Gradient Start:</label>
                     <input
-                        id="background"
+                        id="gradientStart"
                         type="color"
-                        value={background}
-                        onChange={(e) => setBackground(e.target.value)}
+                        value={gradientStart}
+                        onChange={(e) => setGradientStart(e.target.value)}
+                    />
+                </div>
+                <div className="settings-option">
+                    <label htmlFor="gradientEnd">Gradient End:</label>
+                    <input
+                        id="gradientEnd"
+                        type="color"
+                        value={gradientEnd}
+                        onChange={(e) => setGradientEnd(e.target.value)}
                     />
                 </div>
                 <div className="settings-actions">
