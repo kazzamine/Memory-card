@@ -1,7 +1,7 @@
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif; /* Clean and modern font */
-    background-color: #f4f4f4; /* Light gray background */
+    font-family: 'Roboto', sans-serif; 
+    background-color: #f4f4f4; 
     color: #333;
     transition: background-color 0.3s ease-in-out;
 

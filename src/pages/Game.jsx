@@ -55,7 +55,6 @@ const Game = ({ settings }) => {
     const [showPopup, setShowPopup] = useState(false);
 
     useEffect(() => {
-        // Reset game when settings change
         setCards(generateCards(settings.numCards));
         setScore(0);
         setElapsedTime(0);
@@ -76,7 +75,6 @@ const Game = ({ settings }) => {
     
         if (newSelected.length === 2) {
             const [first, second] = newSelected;
-            // Compare the image paths of the flipped cards
             if (newCards[first].image === newCards[second].image) {
                 // Match found
                 newCards[first].isMatched = true;
@@ -100,13 +98,13 @@ const Game = ({ settings }) => {
         // Check if all cards are matched
         if (newCards.every((card) => card.isMatched)) {
             setIsGameActive(false);
-            setShowPopup(true); // Show popup when all cards are matched
+            setShowPopup(true);
     
             // Save game result to localStorage
             const gameResult = {
                 score,
                 time: `${elapsedTime} seconds`,
-                date: new Date().toLocaleString(), // Optional: Add date
+                date: new Date().toLocaleString(), 
             };
     
             const gameHistory = JSON.parse(localStorage.getItem('gameHistory')) || [];
@@ -122,12 +120,12 @@ const Game = ({ settings }) => {
         setScore(0);
         setElapsedTime(0);
         setResetTimer((prev) => !prev);
-        setShowPopup(false); // Reset popup on a new game
+        setShowPopup(false); 
     };
 
     const closePopup = () => {
         setShowPopup(false);
-        setHasStarted(false); // Reset to show "Start Game" button
+        setHasStarted(false); 
     };
 
     return (

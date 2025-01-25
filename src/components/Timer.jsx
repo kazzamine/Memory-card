@@ -9,7 +9,7 @@ const Timer = ({ isGameActive, reset, onTimeUpdate }) => {
             timer = setInterval(() => {
                 setTime((prevTime) => {
                     const updatedTime = prevTime + 1;
-                    onTimeUpdate(updatedTime); // Notify the parent component of the time
+                    onTimeUpdate(updatedTime);
                     return updatedTime;
                 });
             }, 1000);
@@ -19,7 +19,6 @@ const Timer = ({ isGameActive, reset, onTimeUpdate }) => {
         return () => clearInterval(timer);
     }, [isGameActive]);
 
-    // Reset the timer when the reset prop changes
     useEffect(() => {
         setTime(0);
     }, [reset]);

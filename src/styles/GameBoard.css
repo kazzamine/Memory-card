@@ -4,9 +4,9 @@
     gap: 1rem;
     justify-content: center;
     width: 100%;
-    max-width: 800px; /* Maximum width for the game board */
-    height: calc(100vh - 150px); /* Full height minus header, footer, and padding */
+    max-width: 800px; 
+    height: calc(100vh - 150px);
     overflow: hidden;
-    grid-auto-rows: 1fr; /* Ensure rows are evenly spaced */
+    grid-auto-rows: 1fr;
     padding: 1rem;
 }
